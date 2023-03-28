@@ -281,8 +281,8 @@ body .lotteryWrap .wrap .lotterys .button {
   margin: 0 30px;
   -webkit-transform: translateY(10%);
           transform: translateY(10%);
-  -webkit-transition: all .5s linear;
-  transition: all .5s linear;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
   opacity: 0.5;
 }
 
