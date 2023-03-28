@@ -1,0 +1,355 @@
+*
+    margin: 0
+    padding: 0
+    max-width: 100%
+@keyframes shake
+    0%
+        transform: rotate(8deg)
+    20%
+        transform: rotate(-8deg)
+    30%
+        transform: rotate(8deg)
+    40%
+        transform: rotate(-8deg)
+    60%
+        transform: rotate(8deg)
+    70%
+        transform: rotate(-8deg)
+    80%
+        transform: rotate(8deg)
+    90%
+        transform: rotate(-8deg)
+    100%
+        transform: rotate(8deg)
+@keyframes drop
+    0%
+        z-index: -1
+        transform: translateY(-100%)
+    100%
+        z-index: 1
+        transform: translateY(150%) rotate(90deg)
+@keyframes bounce
+    0%
+        transform: translate(-50%, -50%) scale(0.9)
+    50%
+        transform: translate(-50%, -50%) scale(1)
+    100%
+        transform: translate(-50%, -50%) scale(0.9)
+@keyframes blur
+    0%
+        filter: blur(0)
+    100%
+        filter: blur(1rem)
+
+body
+    position: relative
+    .indexWrap
+        position: relative
+        background: url(../img/BG@3x.png) bottom center / cover no-repeat
+        height: 100vh
+        overflow: hidden
+        .luckybox
+            position: relative
+            width: 100%
+            height: 100%
+            .Img
+                position: absolute
+                width: 160px  //200px
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                &::after
+                    content: ""
+                    position: absolute
+                    top: -10px
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    background: url(../img/lucky_draw@3x.png) center center / contain no-repeat
+                    z-index: -1
+        .shake
+            animation: shake 1.8s linear
+            .Img
+                &::after
+                    animation: drop 1.8s 2s ease
+        .button
+            cursor: pointer
+            position: absolute
+            bottom: 10px
+            left: 50%
+            transform: translate(-50%, -50%)
+            width: 200px
+            height: 100px
+            animation: bounce 1.5s linear infinite  //delay 3s
+    .lotteryWrap
+        position: relative
+        height: 100vh
+        overflow: hidden
+        &::before
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            background: url(../img/BG@3x.png) bottom center / cover no-repeat
+            width: 100%
+            height: 100%
+            filter: blur(1rem)
+            animation: blur .5s linear
+            z-index: -1
+        .wrap
+            display: flex
+            width: 100%
+            justify-content: space-around
+            .logo_refresh, .logo_meet
+                width: 20%
+                display: flex
+                flex-direction: column
+                img
+                    width: 70%
+                    margin: 80px auto 0
+            .lotterys
+                display: flex
+                width: 60%
+                justify-content: center
+                .button
+                    width: 80px
+                    margin: 0 30px
+                    transform: translateY(10%)
+                    transition: all .5s linear
+                    &:hover
+                        transform: translateY(9%)
+                .rise
+                    transform: translateY(9%)
+    .overlay
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, 0.5)
+        transition: opacity 200ms
+        visibility: hidden
+        opacity: 0
+        .popup, .popup-second
+            margin: 0 auto
+            width: 30%
+            filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.5))
+            // position: relative
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            .close
+                position: absolute
+                width: 30px
+                height: 30px
+                top: 0px
+                right: -10px
+                transition: all 200ms
+                background-color: #242424
+                &::before, &::after
+                    content: ""
+                    position: absolute
+                    top: 15px
+                    right: 0
+                    width: 30px
+                    height: 2px
+                    background-color: #fff
+                &::before
+                    transform: rotate(45deg)
+                &::after
+                    transform: rotate(-45deg)
+                &:target
+                    visibility: visible
+                    opacity: 1
+            .content
+                width: 100%
+                // height: 100vh
+                height: 95vh
+                position: relative
+                .knowmore
+                    width: 30%
+                    position: absolute
+                    bottom: 100px
+                    left: 50%
+                    transform: translateX(-50%)
+                    transition: all .5s linear
+                    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.4))
+                    &:hover
+                        filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2))
+                        opacity: 0.8
+            .content--1
+                background: url(../img/draw_01@3x.png) center center / contain no-repeat
+            .content--2
+                background: url(../img/draw_02@3x.png) center center / contain no-repeat
+            .content--3
+                background: url(../img/draw_03@3x.png) center center / contain no-repeat
+            .content--4
+                background: url(../img/draw_04@3x.png) center center / contain no-repeat
+            .content--5
+                background: url(../img/draw_05@3x.png) center center / contain no-repeat
+            .content--6
+                background: url(../img/pc_kaohsiung@3x.png) center center / contain no-repeat
+            .content--7
+                background: url(../img/pc_taichung@3x.png) center center / contain no-repeat
+            .content--8
+                background: url(../img/pc_tainan@3x.png) center center / contain no-repeat
+            .content--9
+                background: url(../img/pc_taipei@3x.png) center center / contain no-repeat
+            .content--10
+                background: url(../img/pc_taoyuan@3x.png) center center / contain no-repeat
+        .popup-second
+            width: 45%
+            .content
+                .tryagain
+                    width: 20%
+                    position: absolute
+                    bottom: 20px
+                    left: 50%
+                    transform: translateX(-50%)
+                    transition: all .5s linear
+                    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.4))
+    .visible //key
+        visibility: visible
+        opacity: 1
+
+@media ( max-width: 991px )
+    body
+        position: relative
+        .indexWrap
+            .luckybox
+                .Img
+                    width: 160px
+                    &::after
+                        background: url(../img/lucky_draw@3x.png) center center / contain no-repeat
+            .button
+                bottom: 0
+                width: 150px
+                height: 80px
+        .lotteryWrap
+            &::before
+                background: url(../img/BG@3x.png) bottom center / cover no-repeat
+                z-index: -1
+            .wrap
+                display: block  
+                .logo_refresh, .logo_meet
+                    width: 30%  
+                    margin: 0 auto  
+                    img
+                .logo_meet  
+                    display: none
+                .lotterys
+                    margin: 0 auto  
+                    .button
+                        margin: 0 20px  
+        .overlay
+            .popup, .popup-second
+                width: 60%  
+                .close
+                .content
+                    height: 85vh  
+                    .knowmore
+                        bottom: 10px  
+            .popup-second
+                width: 95%  
+                .content
+                    .tryagain
+                        bottom: -10px  
+        .visible //key
+            visibility: visible
+            opacity: 1
+
+@media ( max-width: 576px )
+    body
+        .indexWrap
+        .lotteryWrap
+            &::before
+            .wrap
+                .logo_refresh, .logo_meet
+                    width: 30%
+                .lotterys
+                    width: 80%
+                    .button
+        .overlay
+            .popup, .popup-second
+                width: 80%  
+                .close
+                .content
+                    height: 88vh  
+                    .knowmore
+                        bottom: 10px  
+            .popup-second
+                width: 95%  
+                .content
+                    height: 70vh
+                    .tryagain
+                        width: 25%
+                        bottom: -10px  
+        .visible //key
+            visibility: visible
+            opacity: 1
+
+@media ( max-width: 480px )
+    body
+        .indexWrap
+            .luckybox
+                .Img
+                    width: 120px 
+                    &::after
+                        background: url(../img/lucky_draw@3x.png) center center / contain no-repeat
+            .button
+                bottom: 10px 
+                width: 150px 
+                height: 80px 
+        .lotteryWrap
+            &::before
+                background: url(../img/BG@3x.png) bottom center / cover no-repeat
+            .wrap
+                display: block 
+                .logo_refresh, .logo_meet
+                    width: 70% 
+                    margin: 0 auto 
+                .logo_meet
+                    display: none 
+                .lotterys
+                    width: 80% 
+                    margin: 0 auto 
+                    .button
+                        margin: 0 10px 
+        .overlay
+            height: 100vh 
+            .popup, .popup-second
+                width: 95% 
+                transform: translate(-50%, -55%)
+                .content
+                    height: 90vh 
+                    .knowmore
+                        bottom: 10px 
+                .content--1
+                    background: url(../img/draw_01@3x.png) center center / contain no-repeat
+                .content--2
+                    background: url(../img/draw_02@3x.png) center center / contain no-repeat
+                .content--3
+                    background: url(../img/draw_03@3x.png) center center / contain no-repeat
+                .content--4
+                    background: url(../img/draw_04@3x.png) center center / contain no-repeat
+                .content--5
+                    background: url(../img/draw_05@3x.png) center center / contain no-repeat
+                .content--6
+                    background: url(../img/mobile_kaohsiung@3x.png) center center / contain no-repeat
+                .content--7
+                    background: url(../img/mobile_taichung@3x.png) center center / contain no-repeat
+                .content--8
+                    background: url(../img/mobile_tainan@3x.png) center center / contain no-repeat
+                .content--9
+                    background: url(../img/mobile_taipei@3x.png) center center / contain no-repeat
+                .content--10
+                    background: url(../img/mobile_taoyuan@3x.png) center center / contain no-repeat
+            .popup-second
+                .content
+                    .tryagain
+                        width: 40% 
+                        bottom: -10px 
+        .visible //key
+            visibility: visible
+            opacity: 1

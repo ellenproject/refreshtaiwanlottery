@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refresh-Taiwan</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="lotteryWrap">
+        <div class="wrap">
+            <div class="logo_refresh">
+                <img src="./img/Refresh_logo@3x.png" alt="">
+            </div>
+            <div class="lotterys">
+                <a href="#popup1" class="button" data-item="1"><img src="./img/lucky_draw@3x.png" alt=""></a>
+                <a href="#popup2" class="button" data-item="2"><img src="./img/lucky_draw@3x.png" alt=""></a>
+                <a href="#popup3" class="button" data-item="3"><img src="./img/lucky_draw@3x.png" alt=""></a>
+                <a href="#popup4" class="button" data-item="4"><img src="./img/lucky_draw@3x.png" alt=""></a>
+                <a href="#popup5" class="button" data-item="5"><img src="./img/lucky_draw@3x.png" alt=""></a>
+            </div>
+            <div class="logo_meet">
+                <img src="./img/Meettaiwan_logo@3x.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- popup start -->
+    <div id="popup1" class="overlay show--1">
+        <div class="popup">
+            <!-- <a class="close" href="#"></a> -->
+            <div class="content content--1">
+                <a class="knowmore button" href="#popup6" data-item="6">
+                    <img src="./img/know_more@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup2" class="overlay show--2">
+        <div class="popup">
+            <div class="content content--2">
+                <a class="knowmore button" href="#popup7" data-item="7">
+                    <img src="./img/know_more@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup3" class="overlay show--3">
+        <div class="popup">
+            <div class="content content--3">
+                <a class="knowmore button" href="#popup8" data-item="8">
+                    <img src="./img/know_more@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup4" class="overlay show--4">
+        <div class="popup">
+            <div class="content content--4">
+                <a class="knowmore button" href="#popup9" data-item="9">
+                    <img src="./img/know_more@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup5" class="overlay show--5">
+        <div class="popup">
+            <div class="content content--5">
+                <a class="knowmore button" href="#popup10" data-item="10">
+                    <img src="./img/know_more@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup6" class="overlay show--6">
+        <div class="popup popup-second">
+            <div class="content content--6">
+                <a class="tryagain" href="./lottery.html">
+                    <img src="./img/try_again@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup7" class="overlay show--7">
+        <div class="popup popup-second">
+            <div class="content content--7">
+                <a class="tryagain" href="./lottery.html">
+                    <img src="./img/try_again@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup8" class="overlay show--8">
+        <div class="popup popup-second">
+            <div class="content content--8">
+                <a class="tryagain" href="./lottery.html">
+                    <img src="./img/try_again@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup9" class="overlay show--9">
+        <div class="popup popup-second">
+            <div class="content content--9">
+                <a class="tryagain" href="./lottery.html">
+                    <img src="./img/try_again@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup10" class="overlay show--10">
+        <div class="popup popup-second">
+            <div class="content content--10">
+                <a class="tryagain" href="./lottery.html">
+                    <img src="./img/try_again@3x.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- popup end -->
+
+
+
+    
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            //open popup
+            $('.button').on('click', function(event){
+                event.preventDefault();
+                // $('.overlay').addClass('visible');
+                let item = $(this).data("item");
+                $(`.show--${item}`).addClass('visible').siblings().removeClass("visible");
+                $(this).addClass('rise');
+            });
+
+            //close popup
+            $('.overlay').on('click', function(event){
+                if( $(event.target).is('.close') || $(event.target).is('.overlay') ) {
+                    event.preventDefault();
+                    $(this).removeClass('visible');
+                    $('.button').removeClass('rise');
+                }
+            });
+        })
+    </script>
+</body>
+</html>
