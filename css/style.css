@@ -283,6 +283,7 @@ body .lotteryWrap .wrap .lotterys .button {
           transform: translateY(10%);
   -webkit-transition: all .5s linear;
   transition: all .5s linear;
+  opacity: 0.5;
 }
 
 body .lotteryWrap .wrap .lotterys .button:hover {
@@ -293,6 +294,7 @@ body .lotteryWrap .wrap .lotterys .button:hover {
 body .lotteryWrap .wrap .lotterys .rise {
   -webkit-transform: translateY(9%);
           transform: translateY(9%);
+  opacity: 1;
 }
 
 body .overlay {

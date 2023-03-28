@@ -82,7 +82,7 @@
     <div id="popup6" class="overlay show--6">
         <div class="popup popup-second">
             <div class="content content--6">
-                <a class="tryagain" href="./lottery.html">
+                <a class="tryagain">
                     <img src="./img/try_again@3x.png" alt="">
                 </a>
             </div>
@@ -92,7 +92,7 @@
     <div id="popup7" class="overlay show--7">
         <div class="popup popup-second">
             <div class="content content--7">
-                <a class="tryagain" href="./lottery.html">
+                <a class="tryagain">
                     <img src="./img/try_again@3x.png" alt="">
                 </a>
             </div>
@@ -102,7 +102,7 @@
     <div id="popup8" class="overlay show--8">
         <div class="popup popup-second">
             <div class="content content--8">
-                <a class="tryagain" href="./lottery.html">
+                <a class="tryagain">
                     <img src="./img/try_again@3x.png" alt="">
                 </a>
             </div>
@@ -112,7 +112,7 @@
     <div id="popup9" class="overlay show--9">
         <div class="popup popup-second">
             <div class="content content--9">
-                <a class="tryagain" href="./lottery.html">
+                <a class="tryagain">
                     <img src="./img/try_again@3x.png" alt="">
                 </a>
             </div>
@@ -122,7 +122,7 @@
     <div id="popup10" class="overlay show--10">
         <div class="popup popup-second">
             <div class="content content--10">
-                <a class="tryagain" href="./lottery.html">
+                <a class="tryagain">
                     <img src="./img/try_again@3x.png" alt="">
                 </a>
             </div>
@@ -151,9 +151,13 @@
                 if( $(event.target).is('.close') || $(event.target).is('.overlay') ) {
                     event.preventDefault();
                     $(this).removeClass('visible');
-                    $('.button').removeClass('rise');
+                    // $('.button').removeClass('rise');
                 }
             });
+
+            $('.tryagain').on('click', function(){
+                $('.overlay').removeClass('visible');
+            })
         })
     </script>
 </body>
